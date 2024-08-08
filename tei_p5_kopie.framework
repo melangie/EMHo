@@ -12,7 +12,7 @@
 						<null/>
 					</field>
 					<field name="name">
-						<String>TEI P5 - Kopie</String>
+						<String>TEI P5 - EMHo</String>
 					</field>
 					<field name="schemaDescriptor">
 						<docTypeSchema>
@@ -20,7 +20,7 @@
 								<Integer>4</Integer>
 							</field>
 							<field name="uri">
-								<String>${framework}/xml/tei/custom/schema/relaxng/tei_all.rng</String>
+								<String>${framework}/xml/tei/custom/schema/relaxng/tei_all_emho.rng</String>
 							</field>
 						</docTypeSchema>
 					</field>
@@ -41,17 +41,6 @@
 								<cssFile-array>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/xml/tei/css/tei_oxygen.css</String>
-										</field>
-										<field name="title">
-											<String>Basic</String>
-										</field>
-										<field name="alternate">
-											<Boolean>false</Boolean>
-										</field>
-									</cssFile>
-									<cssFile>
-										<field name="href">
 											<String>${framework}/xml/tei/css/alternate-full-width-layout.css</String>
 										</field>
 										<field name="title">
@@ -59,6 +48,28 @@
 										</field>
 										<field name="alternate">
 											<Boolean>true</Boolean>
+										</field>
+									</cssFile>
+									<cssFile>
+										<field name="href">
+											<String>${framework}/xml/tei/css/emho_oxygen.css</String>
+										</field>
+										<field name="title">
+											<String>EMHo Tagstyle</String>
+										</field>
+										<field name="alternate">
+											<Boolean>false</Boolean>
+										</field>
+									</cssFile>
+									<cssFile>
+										<field name="href">
+											<String>${framework}/xml/tei/css/tei_oxygen.css</String>
+										</field>
+										<field name="title">
+											<String></String>
+										</field>
+										<field name="alternate">
+											<Boolean>false</Boolean>
 										</field>
 									</cssFile>
 								</cssFile-array>
@@ -2502,7 +2513,7 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;entry xmlns="http://tei-c.org/ns/1-0">&lt;/entry></String>
+																<String>&lt;entry xmlns="http://www.tei-c.org/ns/1.0">&lt;/entry></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -2549,7 +2560,53 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;form>&lt;/form></String>
+																<String>&lt;form xmlns="http://www.tei-c.org/ns/1.0">&lt;/form></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>def</String>
+										</field>
+										<field name="name">
+											<String>definition</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("def", "ana")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;def xmlns="http://www.tei-c.org/ns/1.0" ana="">&lt;/def></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -2891,6 +2948,11 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 									</field>
 									<field name="toolbarEntriesDescriptorList">
 										<toolbarEntry-array>
+											<toolbarItem>
+												<field name="actionID">
+													<String>def</String>
+												</field>
+											</toolbarItem>
 											<toolbarItem>
 												<field name="actionID">
 													<String>form</String>

@@ -1,0 +1,16 @@
+entry {
+
+    -oxy-tags-background-color: yellow;
+}
+
+form {
+    -oxy-tags-color: white;
+    -oxy-tags-background-color: orange;
+}
+
+
+
+def {   
+    -oxy-tags-color: white;
+    -oxy-tags-background-color: red;
+}
