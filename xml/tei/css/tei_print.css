@@ -1,8 +1,0 @@
-@media print {
-  cell[cols] {
-    table-column-span: attr(cols, integer);
-  }
-  cell[rows] {
-    table-row-span: attr(rows, integer);
-  }
-}

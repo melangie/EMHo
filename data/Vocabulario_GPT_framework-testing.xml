@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="file:/Z:/GitHub/EMHo/xml/tei/custom/schema/relaxng/tei_all_emho.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+      <body>
+         <head>Vocabulario de la lengua sangleya por las letras del A, B, C.</head> 
+         
+         <head>A</head> 
+         
+         <div><entry corresp="#122">
+               <form>A</form>
+               <def ana="tonal">para amparar, se pronuncia un poco baja y se detiene su propia
+                  significación. Es recibir la gallina a los pollos debajo de las alas cuando el
+                  milano los quiere coger. De aquí, metafóricamente, lo toman por proteger. Por
+                  ejemplo, la gallina protege a los pollos. También se usa para referirse a recibir
+                  y proteger a los pecadores cuando lloran sus pecados.</def>
+            </entry>
+            <entry>
+               <form><?oxy_comment_start author="strutzs" timestamp="20240812T104700+0200" comment="form hat toggle option für elemente"?>A<?oxy_comment_end?></form>
+               <def ana="tonal"> pronunciada en el mismo tono, significa quitarle el sol a los
+                  árboles grandes a los pequeños. Por ejemplo, los árboles grandes hacen daño a los
+                  pequeñitos, los ahogan y no les dejan crecer.</def>
+            </entry>
+            <entry>
+               <form>A,</form>
+               <def ana="gram"> pronunciada muy baja, significa reverenciar inclinándose
+                  profundamente. Por ejemplo, por qué no reverencias la cruz.</def>
+            </entry><entry corresp="#123">
+               <form>A</form>
+               <def ana="">pronunciada con fuerza y más alta que las anteriores, significa deshacer.
+                  Por ejemplo, ¿me amas o
+                  no?<?oxy_insert_start author="strutzs" timestamp="20240812T114959+0200"?> Tracking
+                  changes.<?oxy_insert_end?></def>
+            </entry>
+            <?oxy_insert_start author="strutzs" timestamp="20240812T121135+0200" type="surround"?><entry
+               corresp=""
+                  ><?oxy_insert_end?><?oxy_insert_start author="strutzs" timestamp="20240812T121255+0200" type="surround"?><form><?oxy_insert_end?>A</form><def
+                  ana=""> pronunciada clara y un poco alta, significa el pato. Por ejemplo, el pato
+                  y la pata comen arroz. Nota cómo se distingue el macho de la hembra: en el caso
+                  del macho se pronuncia con fuerza y se levanta un poco el tono, mientras que para
+                  la hembra es lo contrario. </def></entry>A, en el mismo tono que la anterior, para
+            el verbo que se une con "ku" para ir y con "lai" para venir, significa llevar o traer un
+            barco encomendado o propio como capitán y maestre en conservación. Yo llevo un barco en
+            conservación a China. A de interrogación, como quien dice, "¿estoy hablando contigo?",
+            se usa al final de la frase. Por ejemplo, "Pedro, ¿oyes?". Así se diría que es vocativo.
+            Es muy usado al acabar la razón que se habla con otro, como una pausa o descanso de la
+            misma. A de admiración se pone de ordinario después de "ay" de admiración, que es
+            juntamente quejarse e interjección. A dice lugar aquí y allí. Pero no se usa sola, se
+            acompaña con los dos pronombres "chi" y "hu". Por ejemplo, "aquí" sería "chia" y "allá"
+            sería "hua". A melindrosa, recalcada y breve sin fuerza, caja de antojos o tintero o
+            conserva que se cierran a modo de antojos con encaje. Por ejemplo, "hia" para la caja
+            del tintero, "bac kia" para la caja de los antojos. "Layio a" para la caja de conserva
+            de pera. A significa producir o florecer las plantas en esta forma. El árbol parió
+            flores. </div>
+         
+         <head>AB</head> 
+         
+         <div>Ab, para maltratar o golpear a otro, oprimirlo. Se pronuncia llano. Por ejemplo, cuando uno pelea con otro o lo tiene asido forzándole para algo, le dice el otro "no me hagas mal". 
+         
+         Ab, para amparar, bajar un poquito el tono. 
+         
+         Es importante señalar que esta traducción puede no ser exacta, dado que el lenguaje original es antiguo y podría utilizar palabras y frases que han cambiado significativamente en su uso o significado a lo largo del tiempo.</div>
+         
+      </body>
+  </text>
+</TEI>
+
