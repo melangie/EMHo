@@ -14,3 +14,8 @@ def {
     -oxy-tags-color: white;
     -oxy-tags-background-color: red;
 }
+
+sense {
+    -oxy-tags-color: white;
+    -oxy-tags-background-color: darkred;
+}

@@ -2486,10 +2486,10 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 											<String>entry</String>
 										</field>
 										<field name="name">
-											<String>entry</String>
+											<String>Dictionary Entry</String>
 										</field>
 										<field name="description">
-											<String></String>
+											<String>Dictionary Entry (needs to be filled with a headword and if available a definition). Shortcut: ALT + e</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/resources/icons/entry.png</String>
@@ -2501,7 +2501,7 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>M3 E</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2532,13 +2532,13 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 											<String>form</String>
 										</field>
 										<field name="name">
-											<String>form</String>
+											<String>Headword</String>
 										</field>
 										<field name="description">
-											<String></String>
+											<String>Headword of a dictionary. Must be located in an entry. Shortcut ALT + H</String>
 										</field>
 										<field name="largeIconPath">
-											<String></String>
+											<String>${framework}/resources/icons/headword.png</String>
 										</field>
 										<field name="smallIconPath">
 											<String></String>
@@ -2547,7 +2547,7 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>M3 H</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2559,13 +2559,13 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;form xmlns="http://www.tei-c.org/ns/1.0">&lt;/form></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -2576,16 +2576,16 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 									</action>
 									<action>
 										<field name="id">
-											<String>def</String>
-										</field>
-										<field name="name">
 											<String>definition</String>
 										</field>
+										<field name="name">
+											<String>Definition</String>
+										</field>
 										<field name="description">
-											<String></String>
+											<String>Definition for a headword. Requires the attribute @ana to be completed according to the list (gram or tonal). Shortcut ALT + D</String>
 										</field>
 										<field name="largeIconPath">
-											<String></String>
+											<String>${framework}/resources/icons/definition.png</String>
 										</field>
 										<field name="smallIconPath">
 											<String></String>
@@ -2594,7 +2594,7 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>M3 D</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2620,6 +2620,214 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>tonal</String>
+										</field>
+										<field name="name">
+											<String>Tonal</String>
+										</field>
+										<field name="description">
+											<String>Defines the type of the definition as tonal.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>M3 T</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:current-selected-element()</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>./def</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>ana</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>#tonal</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>sense</String>
+										</field>
+										<field name="name">
+											<String>Sense</String>
+										</field>
+										<field name="description">
+											<String>Description of the sense/meaning of the headword. Shortcut ALT + S</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>M3 S</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("sense")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;sense xmlns="http://www.tei-c.org/ns/1.0">&lt;/sense></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>gram</String>
+										</field>
+										<field name="name">
+											<String>Grammatical</String>
+										</field>
+										<field name="description">
+											<String>Defines the type of the definition as grammatical</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>M3 G</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:current-selected-element()</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>./def</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>ana</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>#gram</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>usage</String>
+										</field>
+										<field name="name">
+											<String>Usage</String>
+										</field>
+										<field name="description">
+											<String>Defines the type of the definition as a usage example.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>M3 U</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:current-selected-element()</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>./def</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>ana</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>#usg</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -2635,164 +2843,7 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 									</field>
 									<field name="menuEntriesDescriptorList">
 										<menuEntry-array>
-											<menuItem>
-												<field name="actionID">
-													<String>bold</String>
-												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>italic</String>
-												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>underline</String>
-												</field>
-											</menuItem>
 											<menuSeparator/>
-											<menuItem>
-												<field name="actionID">
-													<String>section</String>
-												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>paragraph</String>
-												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>insert image</String>
-												</field>
-											</menuItem>
-											<menuSeparator/>
-											<menu>
-												<field name="label">
-													<String>${i18n(list)}</String>
-												</field>
-												<field name="accessKey">
-													<String></String>
-												</field>
-												<field name="iconPath">
-													<String>/images/UnorderedList16.png</String>
-												</field>
-												<field name="menuEntriesDescriptorList">
-													<menuEntry-array>
-														<menuItem>
-															<field name="actionID">
-																<String>item</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>ordered list</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>itemizedlist</String>
-															</field>
-														</menuItem>
-													</menuEntry-array>
-												</field>
-												<field name="context">
-													<null/>
-												</field>
-											</menu>
-											<menu>
-												<field name="label">
-													<String>${i18n(table)}</String>
-												</field>
-												<field name="accessKey">
-													<String></String>
-												</field>
-												<field name="iconPath">
-													<String>/images/Table16.png</String>
-												</field>
-												<field name="menuEntriesDescriptorList">
-													<menuEntry-array>
-														<menuItem>
-															<field name="actionID">
-																<String>insert.table</String>
-															</field>
-														</menuItem>
-														<menuSeparator/>
-														<menuItem>
-															<field name="actionID">
-																<String>insert.table.row.above</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>insert.table.row.below</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>insert.table.rows.custom</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>delete.table.row</String>
-															</field>
-														</menuItem>
-														<menuSeparator/>
-														<menuItem>
-															<field name="actionID">
-																<String>insert.table.column.before</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>insert.table.column.after</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>insert.table.columns.custom</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>delete.table.column</String>
-															</field>
-														</menuItem>
-														<menuSeparator/>
-														<menuItem>
-															<field name="actionID">
-																<String>insert.table.cell</String>
-															</field>
-														</menuItem>
-														<menuSeparator/>
-														<menuItem>
-															<field name="actionID">
-																<String>table.join</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>table.split</String>
-															</field>
-														</menuItem>
-													</menuEntry-array>
-												</field>
-												<field name="context">
-													<null/>
-												</field>
-											</menu>
-											<menuSeparator/>
-											<menuItem>
-												<field name="actionID">
-													<String>id.options</String>
-												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>generate.ids</String>
-												</field>
-											</menuItem>
 										</menuEntry-array>
 									</field>
 									<field name="context">
@@ -2815,115 +2866,20 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 										<menuEntry-array>
 											<menuItem>
 												<field name="actionID">
-													<String>edit.image.map</String>
+													<String>entry</String>
 												</field>
 											</menuItem>
-											<menu>
-												<field name="label">
-													<String>${i18n(table)}</String>
-												</field>
-												<field name="accessKey">
-													<String></String>
-												</field>
-												<field name="iconPath">
-													<String>/images/Table16.png</String>
-												</field>
-												<field name="menuEntriesDescriptorList">
-													<menuEntry-array>
-														<menuItem>
-															<field name="actionID">
-																<String>insert.table.rows.custom</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>delete.table.row</String>
-															</field>
-														</menuItem>
-														<menuSeparator/>
-														<menuItem>
-															<field name="actionID">
-																<String>insert.table.columns.custom</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>delete.table.column</String>
-															</field>
-														</menuItem>
-														<menuSeparator/>
-														<menuItem>
-															<field name="actionID">
-																<String>table.join</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>table.split</String>
-															</field>
-														</menuItem>
-														<menuSeparator/>
-														<menuItem>
-															<field name="actionID">
-																<String>sort_table</String>
-															</field>
-														</menuItem>
-													</menuEntry-array>
-												</field>
-												<field name="context">
-													<String>table</String>
-												</field>
-											</menu>
-											<menu>
-												<field name="label">
-													<String>${i18n(insert)}</String>
-												</field>
-												<field name="accessKey">
-													<String></String>
-												</field>
-												<field name="iconPath">
-													<String></String>
-												</field>
-												<field name="menuEntriesDescriptorList">
-													<menuEntry-array>
-														<menuItem>
-															<field name="actionID">
-																<String>insert.table</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>insert image</String>
-															</field>
-														</menuItem>
-														<menuSeparator/>
-														<menuItem>
-															<field name="actionID">
-																<String>paragraph</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>section</String>
-															</field>
-														</menuItem>
-													</menuEntry-array>
-												</field>
-												<field name="context">
-													<null/>
-												</field>
-											</menu>
 											<menuItem>
 												<field name="actionID">
-													<String>sort</String>
+													<String>form</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>definition</String>
 												</field>
 											</menuItem>
 											<menuSeparator/>
-											<menuItem>
-												<field name="actionID">
-													<String>generate.ids</String>
-												</field>
-											</menuItem>
 											<menuSeparator/>
 										</menuEntry-array>
 									</field>
@@ -2950,7 +2906,7 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 										<toolbarEntry-array>
 											<toolbarItem>
 												<field name="actionID">
-													<String>def</String>
+													<String>entry</String>
 												</field>
 											</toolbarItem>
 											<toolbarItem>
@@ -2960,104 +2916,32 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 											</toolbarItem>
 											<toolbarItem>
 												<field name="actionID">
-													<String>entry</String>
+													<String>definition</String>
 												</field>
 											</toolbarItem>
 											<toolbarItem>
 												<field name="actionID">
-													<String>bold</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>italic</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>underline</String>
+													<String>sense</String>
 												</field>
 											</toolbarItem>
 											<toolbarSeparator/>
 											<toolbarItem>
 												<field name="actionID">
-													<String>section</String>
+													<String>tonal</String>
 												</field>
 											</toolbarItem>
 											<toolbarItem>
 												<field name="actionID">
-													<String>paragraph</String>
+													<String>gram</String>
 												</field>
 											</toolbarItem>
 											<toolbarItem>
 												<field name="actionID">
-													<String>insert image</String>
+													<String>usage</String>
 												</field>
 											</toolbarItem>
 											<toolbarSeparator/>
-											<toolbarItem>
-												<field name="actionID">
-													<String>item</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>ordered list</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>itemizedlist</String>
-												</field>
-											</toolbarItem>
 											<toolbarSeparator/>
-											<toolbarItem>
-												<field name="actionID">
-													<String>sort</String>
-												</field>
-											</toolbarItem>
-											<toolbarSeparator/>
-											<toolbarItem>
-												<field name="actionID">
-													<String>insert.table</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>insert.table.row.below</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>delete.table.row</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>insert.table.column.after</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>delete.table.column</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>insert.table.cell</String>
-												</field>
-											</toolbarItem>
-											<toolbarSeparator/>
-											<toolbarItem>
-												<field name="actionID">
-													<String>table.join</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>table.split</String>
-												</field>
-											</toolbarItem>
 										</toolbarEntry-array>
 									</field>
 								</toolbar>
@@ -3076,72 +2960,72 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 													</list>
 												</field>
 												<field name="actionID">
-													<String>insert image</String>
-												</field>
-												<field name="alias">
-													<String>${i18n(figure.wizard)}</String>
-												</field>
-												<field name="replacementFor">
-													<String>figure</String>
-												</field>
-												<field name="replacedElementNs">
-													<String>http://www.tei-c.org/ns/1.0</String>
-												</field>
-												<field name="displayOnlyWhenElementAllowed">
-													<Boolean>false</Boolean>
-												</field>
-												<field name="useReplaceElementName">
-													<Boolean>false</Boolean>
-												</field>
-											</contextItem>
-											<contextItem>
-												<field name="targets">
-													<list>
-														<Integer>0</Integer>
-													</list>
-												</field>
-												<field name="actionID">
-													<String>insert.table</String>
-												</field>
-												<field name="alias">
-													<String>${i18n(table.wizard)}</String>
-												</field>
-												<field name="replacementFor">
-													<String>table</String>
-												</field>
-												<field name="replacedElementNs">
-													<String>http://www.tei-c.org/ns/1.0</String>
-												</field>
-												<field name="displayOnlyWhenElementAllowed">
-													<Boolean>false</Boolean>
-												</field>
-												<field name="useReplaceElementName">
-													<Boolean>false</Boolean>
-												</field>
-											</contextItem>
-											<contextItem>
-												<field name="targets">
-													<list>
-														<Integer>0</Integer>
-													</list>
-												</field>
-												<field name="actionID">
-													<String>insert.table.row.below</String>
+													<String>entry</String>
 												</field>
 												<field name="alias">
 													<null/>
 												</field>
 												<field name="replacementFor">
-													<String>row</String>
+													<null/>
 												</field>
 												<field name="replacedElementNs">
-													<String>http://www.tei-c.org/ns/1.0</String>
+													<String></String>
 												</field>
 												<field name="displayOnlyWhenElementAllowed">
 													<Boolean>false</Boolean>
 												</field>
 												<field name="useReplaceElementName">
-													<Boolean>true</Boolean>
+													<Boolean>false</Boolean>
+												</field>
+											</contextItem>
+											<contextItem>
+												<field name="targets">
+													<list>
+														<Integer>0</Integer>
+													</list>
+												</field>
+												<field name="actionID">
+													<String>form</String>
+												</field>
+												<field name="alias">
+													<null/>
+												</field>
+												<field name="replacementFor">
+													<null/>
+												</field>
+												<field name="replacedElementNs">
+													<String></String>
+												</field>
+												<field name="displayOnlyWhenElementAllowed">
+													<Boolean>false</Boolean>
+												</field>
+												<field name="useReplaceElementName">
+													<Boolean>false</Boolean>
+												</field>
+											</contextItem>
+											<contextItem>
+												<field name="targets">
+													<list>
+														<Integer>0</Integer>
+													</list>
+												</field>
+												<field name="actionID">
+													<String>definition</String>
+												</field>
+												<field name="alias">
+													<null/>
+												</field>
+												<field name="replacementFor">
+													<null/>
+												</field>
+												<field name="replacedElementNs">
+													<String></String>
+												</field>
+												<field name="displayOnlyWhenElementAllowed">
+													<Boolean>false</Boolean>
+												</field>
+												<field name="useReplaceElementName">
+													<Boolean>false</Boolean>
 												</field>
 											</contextItem>
 										</contextItem-array>
@@ -4157,10 +4041,10 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 						<String>ro.sync.ecss.extensions.tei.TEIP5ExtensionsBundle</String>
 					</field>
 					<field name="useImposedInitialPage">
-						<Boolean>false</Boolean>
+						<Boolean>true</Boolean>
 					</field>
 					<field name="imposedInitialPage">
-						<String>Text</String>
+						<String>Author</String>
 					</field>
 					<field name="elementLocatorExtension">
 						<null/>

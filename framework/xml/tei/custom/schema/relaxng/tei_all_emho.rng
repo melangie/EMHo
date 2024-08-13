@@ -13599,8 +13599,8 @@ Suggested values include: 1] main; 2] hom (homograph); 3] xref (cross reference)
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(corresponds) </a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI">
-                     <param name="pattern">\S+</param>
+                  <data type="string">
+                     <param name="pattern">#\d{4}</param>
                   </data>
                </oneOrMore>
             </list>
@@ -13953,9 +13953,11 @@ Suggested values include: 1] main; 2] hom (homograph); 3] xref (cross reference)
             <list>
                <oneOrMore>
                   <choice>
-                     <value>gram</value>
+                     <value>#gram</value>
                      <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                     <value>tonal</value>
+                     <value>#tonal</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                     <value>#usg</value>
                      <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                   </choice>
                </oneOrMore>
