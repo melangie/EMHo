@@ -52,10 +52,10 @@
 									</cssFile>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/xml/tei/css/emho_oxygen.css</String>
+											<String>${framework}/xml/tei/css/tei_oxygen.css</String>
 										</field>
 										<field name="title">
-											<String>EMHo Tagstyle</String>
+											<String></String>
 										</field>
 										<field name="alternate">
 											<Boolean>false</Boolean>
@@ -63,7 +63,7 @@
 									</cssFile>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/xml/tei/css/tei_oxygen.css</String>
+											<String>${framework}/xml/tei/css/emho_oxygen.css</String>
 										</field>
 										<field name="title">
 											<String></String>
@@ -2828,6 +2828,64 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>copy</String>
+										</field>
+										<field name="name">
+											<String>CopyForm</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:current-selected-element()</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>action</String>
+																<String>After</String>
+															</entry>
+															<entry>
+																<String>script</String>
+																<String>${framework}/xslt/copy-button.xsl</String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -2941,6 +2999,11 @@ oxy:current-selected-element()[ancestor-or-self::*:cell]</String>
 												</field>
 											</toolbarItem>
 											<toolbarSeparator/>
+											<toolbarItem>
+												<field name="actionID">
+													<String>copy</String>
+												</field>
+											</toolbarItem>
 											<toolbarSeparator/>
 										</toolbarEntry-array>
 									</field>

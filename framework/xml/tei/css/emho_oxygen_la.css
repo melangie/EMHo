@@ -1,0 +1,25 @@
+entry {
+
+    -oxy-tags-background-color: yellow;
+    -oxy-display-tags: none;
+}
+
+form {
+    -oxy-tags-color: white;
+    -oxy-tags-background-color: orange;
+    -oxy-display-tags: none;
+}
+
+
+
+def {   
+    -oxy-tags-color: white;
+    -oxy-tags-background-color: red;
+    -oxy-display-tags: none;
+}
+
+sense {
+    -oxy-tags-color: white;
+    -oxy-tags-background-color: darkred;
+    -oxy-display-tags: none;
+}
